@@ -13,7 +13,7 @@ const Update = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put('http://localhost:3500/update', {
+      await axios.put('https://fullweb-fpn2p46b6-aravinds-projects-7f57af90.vercel.app/update', {
         username,
         newName,
         newAge,

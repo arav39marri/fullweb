@@ -14,6 +14,15 @@ app.get('/', (req, res) => {
   res.send('Hello from Express');
 });
 
+app.use( cors({
+  origin:['https://fullweb-fpn2p46b6-aravinds-projects-7f57af90.vercel.app'] ,
+  methods:['GET', 'POST', 'DELETE','PUT'] ,
+  credentials: true  
+
+}
+));
+
+
 app.post('/create', async (req, res) => {
   try {
     const { name, username, age, email } = req.body;

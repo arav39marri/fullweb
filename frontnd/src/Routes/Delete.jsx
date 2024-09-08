@@ -12,7 +12,7 @@ const Delete = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete('http://localhost:3500/delete', {
+      await axios.delete('https://fullweb-fpn2p46b6-aravinds-projects-7f57af90.vercel.app/delete', {
         data: { username } 
       });
       alert("User deleted successfully");
