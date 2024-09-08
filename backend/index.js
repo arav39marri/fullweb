@@ -4,17 +4,19 @@ const userModel = require('./userModel');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config()
-const port = process.env.PORT || 3500;  
+const port = process.env.PORT || 2500 ;  
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(cors({
-  origin: 'https://fullweb-frontend.vercel.app', 
-  methods: ['GET', 'POST', 'DELETE', 'PUT'],
-  credentials: true  
-}));
+    app.use(cors(
+          {
+          origin: 'https://fullweb-frontend.vercel.app', 
+          methods: ['GET', 'POST', 'DELETE', 'PUT'],
+          credentials: true  
+        }
+    ));
 
 app.get('/', (req, res) => {
   res.send('Hello from Express');
@@ -82,6 +84,6 @@ mongoose.connect('mongodb+srv://aravindmarripelli:2hhQ2pUbcifWRdbR@cluster0.xwga
   .catch(err => console.error('MongoDB connection error:', err));
 
 
-app.listen(process.env.PORT , () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
