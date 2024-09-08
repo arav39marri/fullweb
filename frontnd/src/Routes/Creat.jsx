@@ -10,12 +10,14 @@ const Creat = () => {
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+const URL ='mongodb+srv://aravindmarripelli:DwaLPXc0z0acAqVc@aravind.c1xfg.mongodb.net/?retryWrites=true&w=majority&appName=Aravind';
+
 
   const submit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3500/create", {
+      await axios.post('http://localhost:3500/create', {
         name,
         username,
         age,

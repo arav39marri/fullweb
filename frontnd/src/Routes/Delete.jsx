@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Delete = () => {
+
+
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
 
