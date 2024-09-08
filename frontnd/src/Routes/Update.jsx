@@ -23,7 +23,7 @@ const Update = () => {
       navigate('/');
     } catch (error) {
       console.error(error);
-      alert("Error updating user");
+      alert("user not found");
     }
   }
 

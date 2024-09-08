@@ -3,6 +3,8 @@ const app = express();
 const userModel = require('./userModel');
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config()
+const port = 3500;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -41,12 +43,13 @@ app.delete('/delete', async (req, res) => {
   try {
     const user = await userModel.findOneAndDelete({ username });
     if (!user) {
+      
       return res.status(404).send({ message: "User not found" });
     }
     res.status(200).send({ message: "User deleted successfully", user });
   } catch (error) {
-    res.status(500).send({ message: "Error deleting user", error });
-    console.error("Error deleting user:", error);
+    res.status(500).send({ message: "user not found", error });
+    console.error("user not found", error);
   }
 });
 
@@ -73,6 +76,6 @@ mongoose.connect('mongodb+srv://aravindmarripelli:2hhQ2pUbcifWRdbR@cluster0.xwga
   .catch(err => console.error('MongoDB connection error:', err));
 
 
-app.listen(3500, () => {
-  console.log('Server is running on port 3500');
+app.listen(process.env.PORT , () => {
+  console.log(`Server is running on port ${port}`);
 });

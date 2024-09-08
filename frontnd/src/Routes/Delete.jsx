@@ -19,7 +19,7 @@ const Delete = () => {
       navigate('/');
     } catch (error) {
       console.error(error);
-      alert("Error deleting user");
+      alert("user not found");
     }
   }
 
