@@ -17,7 +17,7 @@ const URL ='mongodb+srv://aravindmarripelli:DwaLPXc0z0acAqVc@aravind.c1xfg.mongo
     e.preventDefault();
 
     try {
-      await axios.post('https://fullweb-fpn2p46b6-aravinds-projects-7f57af90.vercel.app/create', {
+      await axios.post('https://fullweb-db.vercel.app/create', {
         name,
         username,
         age,
