@@ -11,11 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 
 
     app.use(cors(
-          {
-          "origin": "https://fullweb-frontend.vercel.app", 
-          "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-          "credentials": true  
-        }
+        //   {
+        //   "origin": "https://fullweb-frontend.vercel.app", 
+        //   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+        //   "credentials": true  
+        // }
     ));
 
 app.get('/', (req, res) => {
