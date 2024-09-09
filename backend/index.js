@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
     app.use(cors(
           {
-          "origin": "*", 
+          "origin": "https://fullweb-frontend.vercel.app", 
           "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
           "credentials": true  
         }
