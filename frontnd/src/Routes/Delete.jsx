@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Delete = () => {
 
-
+// https://fullweb-fpn2p46b6-aravinds-projects-7f57af90.vercel.app
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
 
