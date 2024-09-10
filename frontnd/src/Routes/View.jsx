@@ -6,18 +6,20 @@ import { useState } from 'react';
 
 const View = () => {
     const [data, setData] = useState([]);
-    const API_URL = 'https://fullweb-db.vercel.app';        
-
+    const API_URL = 'http://localhost:8500';        
+    
     useEffect(() => {
-     const ftch =  axios.get(`${API_URL}/read`).then((res) => {
-      // console.log(res.data);
+      //console.log(`${API_URL}`)
+     const ftch =  axios.get('https://fullweb-back.vercel.app/read').then((res) => {
+      
+      console.log(res.data);
       setData(res.data);
       return res.data;
       
      }).then((data) => {
 
      })
-    })
+    },[]);
 
 
 

@@ -13,7 +13,7 @@ const Update = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put('https://fullweb-db.vercel.app/update', {
+      await axios.put('https://fullweb-back.vercel.app/update', {
         username,
         newName,
         newAge,
