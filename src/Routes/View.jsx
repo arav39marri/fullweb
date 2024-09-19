@@ -12,7 +12,7 @@ const View = () => {
     
     const [load, setLoad] = useState(true);
     useEffect(() => {
-      //console.log(`${API_URL}`)
+      
      const ftch =  axios.get('https://fullweb-back.vercel.app/read').then((res) => {
       
        setLoad(false);
