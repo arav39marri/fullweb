@@ -3,15 +3,19 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import  animation from '../animation.json';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const View = () => {
     const [data, setData] = useState([]);
     const API_URL = 'http://localhost:8500';        
     
+    const [load, setLoad] = useState(true);
     useEffect(() => {
       //console.log(`${API_URL}`)
      const ftch =  axios.get('https://fullweb-back.vercel.app/read').then((res) => {
       
+       setLoad(false);
       console.log(res.data);
       setData(res.data);
       return res.data;
@@ -19,7 +23,7 @@ const View = () => {
      }).then((data) => {
 
      })
-    },[]);
+    },[data]);
 
 
 
@@ -29,17 +33,21 @@ const View = () => {
    <Link  to='/' > <p>Back</p></Link>
    <h1 className='text-3xl block'>View User</h1>
    </div>
-    <div className='   gap-5 ml-20 mr-5 flex flex-wrap p-2 w-full  items-center ' >
-        {data && data.length === 0? <p className='ml-20'  >No user found</p> : null}
-         {data.map((item,index) => (
-            <div key={item._id} className='flex gap-2 flex-col items-center bg-[#f7f7f7] p-8 rounded-md shadow-md'>
-              <p>name : {item.name}</p>
-              <p>username :{item.username}</p>                                                                                                                                                                                                                                                                                                                                                                                                                  
-              <p> Email : {item.email}</p>
-              <p> Age : {item.age}</p>
-            </div>
-          ))}                                                                                                                                       
-      </div>
+     {
+        load ? 
+        ( <Player src={animation} loop className="player"  autoplay style={{ height: '300px', width: '300px' }}  />) :
+         (<div className='   gap-5 ml-20 mr-5 flex flex-wrap p-2 w-full  items-center ' >
+          {data && data.length === 0? <p className='ml-20'  >No user found</p> : null}
+           {data.map((item,index) => (
+              <div key={item._id} className='flex gap-2 flex-col items-center bg-[#f7f7f7] p-8 rounded-md shadow-md'>
+                <p>name : {item.name}</p>
+                <p>username :{item.username}</p>                                                                                                                                                                                                                                                                                                                                                                                                                  
+                <p> Email : {item.email}</p>
+                <p> Age : {item.age}</p>
+              </div>
+            ))}                                                                                                                                       
+        </div>)
+     }
     
     </div>
   )
